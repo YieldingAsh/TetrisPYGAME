@@ -3,7 +3,8 @@
 # Integrantes
 - Matias Nicolas Castrellon
 # Visualizacion de proyecto
-![image](https://github.com/YieldingAsh/TetrisPYGAME/assets/99512390/6674eeac-ef82-422c-af43-bfea4fb53bbd)
+![image](https://github.com/YieldingAsh/TetrisPYGAME/assets/99512390/df21e9b6-dc6a-4fae-b8b8-69d50da06474)
+![image](https://github.com/YieldingAsh/TetrisPYGAME/assets/99512390/1dbb6660-586f-4146-9efc-801ad48b2619)
 # Requisitos del Proyecto:
 Pygame :: TETRIS
 
