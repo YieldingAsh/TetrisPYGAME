@@ -5,7 +5,7 @@ vec = pygame.math.Vector2
 FPS = 60
 FIELD_COLOR = ('black')
 BG_COLOR = ('black')
-FONT_PATH = ('tetrispygame/Font/ComicSansMS3.ttf')
+FONT_PATH = ('tetrispygame/Font/fontaa.ttf')
 SPRITE_PATH =('tetrispygame/Sprites')
 
 ANIM_TIME_INTERVALE = 150

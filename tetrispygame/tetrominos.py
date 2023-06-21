@@ -9,6 +9,7 @@ class Block(pygame.sprite.Sprite):
         self.next_pos = vec(pos) + NEXT_POS_OFFSET
         self.alive = True
 
+        #aplicacion de las imagenes en los bloques
         super().__init__(tetromino.tetris.sprite_group)
         self.image = tetromino.image
         #self.image = pygame.Surface([TILE_SIZE, TILE_SIZE])
