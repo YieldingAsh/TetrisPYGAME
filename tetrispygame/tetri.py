@@ -2,6 +2,7 @@ from settings import *
 from tetrominos import Tetromino
 import math
 import pygame.freetype as ft
+import sqlite3
 
 class Text:
     #definicion de tipo de letra
@@ -14,6 +15,7 @@ class Text:
         self.font.render_to(self.app.screen, (WIN_W * 0.595, WIN_H * 0.02), text='TETRIS', fgcolor='white', size=TILE_SIZE * 1.10, bgcolor='black')
         self.font.render_to(self.app.screen, (WIN_W * 0.65, WIN_H * 0.22), text='Next', fgcolor='white', size=TILE_SIZE * 1.2, bgcolor='black')
         self.font.render_to(self.app.screen, (WIN_W * 0.64, WIN_H * 0.67), text='Score', fgcolor='white', size=TILE_SIZE * 1.2, bgcolor='black')
+        self.font.render_to(self.app.screen, (WIN_W * 0.6, WIN_H * 0.98), text='Press ESC for main menu', fgcolor='white', size=TILE_SIZE * 0.2, bgcolor='black')
         self.font.render_to(self.app.screen, (WIN_W * 0.64, WIN_H * 0.8), text=f'{self.app.tetris.score}', fgcolor='white', size=TILE_SIZE * 1.4, bgcolor='black')
 
 #incialiacion de la clase tetris
@@ -72,7 +74,15 @@ class Tetris:
     #lugar donde aparecen lo bloques, envia true para que se reinicia el juego
     def is_game_over(self):
         if self.tetromino.blocks[0].pos.y == INIT_POS_OOFSET[1]:
-            pygame.time.wait(300)
+            conn = sqlite3.connect('tetrispygame/ScoreBoard.db')
+            c = conn.cursor()
+            c.execute("INSERT INTO jugadores VALUES (?, ?, ?)", ('Jugador 1', self.score, self.tiempo))
+            conn.commit()
+            c.execute("SELECT * FROM jugadores")
+            jugadores = c.fetchall()
+            print(jugadores)
+            conn.close()
+            pygame.time.wait(2000)
             return True
         
     #verifica despues de que el tetromino aterrizo si hay game over para reiniciar el juego,
